@@ -19,24 +19,28 @@ a {
   color: #f9f9f9;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
+  
 }
 
 @media only screen and (min-width: 768px) {
   body {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 768px) {
   body {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
+    
   }
 }
 @media only screen and (max-width: 479px) {
   body {
       font-size: 14px;
       font-family: 'Poppins', sans-serif;
+     
   }
 }
 
@@ -49,3 +53,6 @@ svg.icon-react {
   
 }
 
+.ant-select-selection {
+  background-color: green;
+}
