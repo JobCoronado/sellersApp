@@ -119,6 +119,12 @@ const Logo = styled.img`
     display: block;
     width: 100%;
   }
+  :hover {
+    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+      rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+    transform: scale(1.05);
+    border-color: rgba(249, 249, 249, 0.8);
+    }
 `;
 
 const NavMenu = styled.div`
@@ -192,7 +198,14 @@ const Login = styled.a`
     background-color:#25cb80;;
     color: #fff;
     border-color: transparent;
+    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+    rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+    transform: scale(1.05);
+
   }
+
+ 
+    }
 `;
 
 const UserImg = styled.img`
