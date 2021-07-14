@@ -2,7 +2,7 @@ import firebase from "firebase";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCKxJjbtSLHtBbpOsc3hNtc3GqMHPi0vMo",
-    authDomain: "sellers-app.vercel.app",
+    authDomain: "melonn-sellers-app.firebaseapp.com",
     projectId: "melonn-sellers-app",
     storageBucket: "melonn-sellers-app.appspot.com",
     messagingSenderId: "808532719635",
