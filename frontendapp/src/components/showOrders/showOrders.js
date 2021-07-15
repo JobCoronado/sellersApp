@@ -2,7 +2,7 @@
 // import {getOrders} from "../../api/order";
 import "antd/dist/antd.css";
 import { Table } from 'antd';
-import { Container } from "./showOrders.styles";
+import { Container, Description } from "./showOrders.styles";
 
 const ShowOrders = () => {
     const dataSource = [
@@ -36,9 +36,8 @@ const ShowOrders = () => {
     ];
     return (
         <Container>
-        <div  style={{display: 'block',  padding: 30
-        }}>
-             <h4>Your Orders </h4>
+        <div  style={{display: 'block',  padding: 30 }}>
+             <Description>Your Orders </Description>
             <Table dataSource={dataSource} columns={columns} />
           
         </div>

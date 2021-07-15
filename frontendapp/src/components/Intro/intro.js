@@ -65,7 +65,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,27,91,1) 45%, rgba
     align-items: center;
     margin: 60px 10px 20px 10px;
     line-height: 1.0;
-    /* letter-spacing: 1.5px; */
+    
   `;
   
 
