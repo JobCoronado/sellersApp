@@ -21,7 +21,7 @@ const intro = () => {
   
   const Container = styled.section`
   
-    /* margin-top: 40px; */
+    margin-top: 40px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
