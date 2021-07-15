@@ -16,7 +16,7 @@ const Header = () => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        history.push("/orders");
+        //history.push("/orders");
       }
     });
   }, [userName]);
@@ -27,6 +27,7 @@ const Header = () => {
         .signInWithPopup(provider)
         .then((result) => {
           setUser(result.user);
+          history.push("/orders")
         })
         .catch((error) => {
           alert(error.message);
@@ -53,7 +54,7 @@ const Header = () => {
   };
   return (
     <Nav>
-      <a href="/test"> 
+      <a href="/orders"> 
       <Logo src="/images/melonn_white.png" />
       </a>
       {!userName ? (
@@ -104,6 +105,10 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,27,91,1) 45%, rgba
   padding: 0 36px;
   letter-spacing: 16px;
   z-index: 1;
+  box-shadow: rgb(2,0,36 / 60%) 0px 20px 28px -16px,
+      rgb(0 0 0 / 52%) 0px 20px 12px -10px;
+    
+    
  
 `;
 

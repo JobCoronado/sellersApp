@@ -21,12 +21,13 @@ const intro = () => {
   
   const Container = styled.section`
   
-    margin-top: 40px;
+    /* margin-top: 40px; */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    
     height: 100vh;
     color:#fff;
     background: rgb(2,0,36);
@@ -60,6 +61,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,27,91,1) 45%, rgba
     color: #fff;
     font-size: 30px;
     font-weight: bold;
+    font-family:'Poppins', sans-serif;
     align-items: center;
     margin: 60px 10px 20px 10px;
     line-height: 1.0;
