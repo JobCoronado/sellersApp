@@ -8,7 +8,7 @@
 
 In this project we can execute the following scripts:
 
-### ./install.sh clone the repo and install the dependencies
+### `./install.sh` clone the repo and install the dependencies
 
 after this run:
 
@@ -34,7 +34,7 @@ Build the production application this can be seen in the folder build.<br />
 
 ## Autors ✒️
 
-* **Job Coronado Duran** - *Project Owner* - [JobCoronado](https://github.com/RicardoArquimedes)
+* **Ricardo Arquímedes** - *Project Owner* - [Ricardo Arquimedes](https://github.com/RicardoArquimedes)
 
 ---
 ⌨️ with ❤️ por [Ricardo Arquímedes](https://github.com/RicardoArquimedes)😊
