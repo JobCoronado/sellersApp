@@ -278,7 +278,7 @@ const AddOrders = () => {
                   placeholder="Weight"
                   min={1}
                   max={10}
-                  defaultValue={3}
+                  
                   onSumbit={onSubmit}
                   onChange={(e) => setShippingWeight(e.target.value)}
                 />
@@ -290,7 +290,7 @@ const AddOrders = () => {
                   placeholder="Quantity"
                   min={1}
                   max={10}
-                  defaultValue={3}
+                  
                   onSumbit={onSubmit}
                   onChange={(e) => setShippingQuantity(e.target.value)}
                 />
