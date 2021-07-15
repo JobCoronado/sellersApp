@@ -305,7 +305,7 @@ const AddOrders = () => {
         <Button
           onClick={() => {
             window.setTimeout(() => {
-              history.push('/test');
+              history.push('/showorders');
            }, 5000)
             notify();
             handleSubmit();
