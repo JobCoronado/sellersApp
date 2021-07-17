@@ -1,0 +1,19 @@
+{
+  "name": "backendappi",
+  "version": "1.0.0",
+  "description": "Make sure you have Node and NPM installed both with `node -v && npm -v`.   Install packages with `npm install`.   Run server with `npm run dev` for using **Nodemon**.",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "dev": "node_modules/.bin/nodemon -e js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+  
+}
