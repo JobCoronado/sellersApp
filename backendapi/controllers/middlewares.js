@@ -2,9 +2,9 @@ const dataOrders = require('./dataOrders.js')
 
 
 function mustBeInteger(req, res, next) {
-    const id = req.params.id
+    const OrderId = req.params.OrderId
 
-    if (!Number.isInteger(parseInt(id))) {
+    if (!Number.isInteger(parseInt(OrderId))) {
         res.status(400).json({ message: 'ID must be an integer' })
     } else {
         next()

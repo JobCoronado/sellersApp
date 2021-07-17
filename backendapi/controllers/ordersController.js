@@ -1,14 +1,17 @@
 const fs = require('fs')
 
+const newDate = () => new Date().toISOString().split('T')[0]
+const number = Math.round(Math.random() * (100 - 1) + 1);
+const date = newDate();
 const getNewId = (array) => {
     if (array.length > 0) {
-        return array[array.length - 1].id + 1
+        return number +  date.split('-').join('')
     } else {
         return 1
     }
 }
 
-const newDate = () => new Date().toString()
+
 
 function mustBeInArray(array, id) {
     return new Promise((resolve, reject) => {

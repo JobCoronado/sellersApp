@@ -14,10 +14,10 @@ function getPosts() {
     })
 }
 
-function getPost(id) {
+function getPost(OrderId) {
     return new Promise((resolve, reject) => {
         const posts = controller.retrieveOrders(filename);
-        controller.mustBeInArray(posts, id)
+        controller.mustBeInArray(posts, OrderId)
         .then(post => resolve(post))
         .catch(err => reject(err))
     })
@@ -26,30 +26,30 @@ function getPost(id) {
 function insertPost(newPost) {
     return new Promise((resolve, reject) => {
         const posts = controller.retrieveOrders(filename);
-        const id = { id: controller.getNewId(posts) }
+        const OrderId = { OrderId: controller.getNewId(posts) }
         const date = { 
             createdAt: controller.newDate(),
             updatedAt: controller.newDate()
         } 
-        newPost = { ...id, ...date, ...newPost }
+        newPost = { ...OrderId, ...date, ...newPost }
         posts.push(newPost)
         controller.writeJSONFile(filename, posts)
         resolve(newPost)
     })
 }
 
-function updatePost(id, newPost) {
+function updatePost(OrderId, newPost) {
     return new Promise((resolve, reject) => {
         const posts = controller.retrieveOrders(filename);
-        controller.mustBeInArray(posts, id)
+        controller.mustBeInArray(posts, OrderId)
         .then(post => {
-            const index = posts.findIndex(p => p.id == post.id)
-            id = { id: post.id }
+            const index = posts.findIndex(p => p.OrderId == post.OrderId)
+            OrderId = { OrderId: post.OrderId }
             const date = {
                 createdAt: post.createdAt,
                 updatedAt: controller.newDate()
             } 
-            posts[index] = { ...id, ...date, ...newPost }
+            posts[index] = { ...OrderId, ...date, ...newPost }
             controller.writeJSONFile(filename, posts)
             resolve(posts[index])
         })
@@ -57,12 +57,12 @@ function updatePost(id, newPost) {
     })
 }
 
-function deletePost(id) {
+function deletePost(OrderId) {
     return new Promise((resolve, reject) => {
         const posts = controller.retrieveOrders(filename);
-        controller.mustBeInArray(posts, id)
+        controller.mustBeInArray(posts, OrderId)
         .then(() => {
-            const updatedPosts = posts.filter(p => p.id !== +id);
+            const updatedPosts = posts.filter(p => p.OrderId !== +OrderId);
             controller.writeJSONFile(filename, updatedPosts)
             resolve()
         })

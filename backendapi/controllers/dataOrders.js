@@ -17,6 +17,16 @@ const dataOrder =   [ {
       "shippingName": "Shoes",
       "shippingQuantity": 4,
       "shippingWeight": 5
+    },
+    "promises": {
+      "packPromiseMin": "Wed, 14 Jul 2021 01:26:32 GMT",
+      "packPromiseMax": "Wed, 14 Jul 2021 03:26:32 GMT",
+      "shipPromiseMin": null,
+      "shipPromiseMax": null,
+      "deliveryPromiseMin": null,
+      "deliveryPromiseMax": null,
+      "readyPickupPromiseMin": "Wed, 14 Jul 2021 01:26:32 GMT",
+      "readyPickupPromiseMax": "Wed, 14 Jul 2021 03:26:32 GMT"
     }
   }
 }
