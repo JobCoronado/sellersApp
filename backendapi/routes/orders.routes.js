@@ -33,7 +33,7 @@ router.get('/:id', m.mustBeInteger, async (req, res) => {
 
 /* Insert a new post */
 router.post('/', m.checkFieldsPost, async (req, res) => {
-    await post.addOrders(req.body)
+    await post.insertPost(req.body)
     .then(post => res.status(201).json({
         message: `The post #${post.OrderId} has been created`,
         content: post
