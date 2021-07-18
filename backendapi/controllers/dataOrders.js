@@ -16,18 +16,19 @@ const dataOrder =   [ {
       "shippingCountry": "Colombia",
       "shippingName": "Shoes",
       "shippingQuantity": 4,
-      "shippingWeight": 5
-    },
-    "promises": {
-      "packPromiseMin": "Wed, 14 Jul 2021 01:26:32 GMT",
-      "packPromiseMax": "Wed, 14 Jul 2021 03:26:32 GMT",
-      "shipPromiseMin": null,
+      "shippingWeight": 5,
+      },
+    "packPromises": {
+      "packPromiseMin": null,
+      "packPromiseMax": null,
+      "shipPromise": null,
       "shipPromiseMax": null,
+      "deliveryPromisaMax": null,
       "deliveryPromiseMin": null,
-      "deliveryPromiseMax": null,
-      "readyPickupPromiseMin": "Wed, 14 Jul 2021 01:26:32 GMT",
-      "readyPickupPromiseMax": "Wed, 14 Jul 2021 03:26:32 GMT"
-    }
+      "readyPickupPromiseMin": null,
+      "readyPickupPromisaMax": null
+  }
+   
   }
 }
 ];
