@@ -2,7 +2,7 @@ const filename = './data/dataOrders.json';
 const controller = require('../controllers/ordersController.js');
 
 function getPosts() {
-    const posts = controller.retrieveOrders(filename)
+    const posts = controller.getAllOrders(filename)
     return new Promise((resolve, reject) => {
         if (posts.length === 0) {
             reject({
@@ -16,16 +16,16 @@ function getPosts() {
 
 function getPost(OrderId) {
     return new Promise((resolve, reject) => {
-        const posts = controller.retrieveOrders(filename);
+        const posts = controller.getAllOrders(filename);
         controller.mustBeInArray(posts, OrderId)
         .then(post => resolve(post))
         .catch(err => reject(err))
     })
 }
 
-function insertPost(newPost) {
+function addOrders(newPost) {
     return new Promise((resolve, reject) => {
-        const posts = controller.retrieveOrders(filename);
+        const posts = controller.getAllOrders(filename);
         const OrderId = { OrderId: controller.getNewId(posts) }
         const date = { 
             createdAt: controller.newDate(),
@@ -40,7 +40,7 @@ function insertPost(newPost) {
 
 function updatePost(OrderId, newPost) {
     return new Promise((resolve, reject) => {
-        const posts = controller.retrieveOrders(filename);
+        const posts = controller.getAllOrders(filename);
         controller.mustBeInArray(posts, OrderId)
         .then(post => {
             const index = posts.findIndex(p => p.OrderId == post.OrderId)
@@ -59,7 +59,7 @@ function updatePost(OrderId, newPost) {
 
 function deletePost(OrderId) {
     return new Promise((resolve, reject) => {
-        const posts = controller.retrieveOrders(filename);
+        const posts = controller.getAllOrders(filename);
         controller.mustBeInArray(posts, OrderId)
         .then(() => {
             const updatedPosts = posts.filter(p => p.OrderId !== +OrderId);
@@ -71,7 +71,7 @@ function deletePost(OrderId) {
 }
 
 module.exports = {
-    insertPost,
+    addOrders,
     getPosts,
     getPost, 
     updatePost,
