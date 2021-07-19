@@ -1,18 +1,32 @@
+const bodyParser = require('body-parser');
 const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
+const cors = require('cors')
 
+//inicializations
 const app = express();
 
-app.use(cors())
-app.use(morgan('tiny'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(require('./routes/server.routes.js'))
 
-app.get('/', (req, res) => {
-    res.json( 'Hello Melonn Sellers' );
-});
-const server= app.listen(8000, () => {
-    console.log('listening on port %s...', server.address().port);
-});
+// Setings
+app.set('port', process.env.PORT || 8000);
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header( 'Access-Control-Allow-Methods', 'GET, OPTIONS, HEAD, POST, PUT, DELETE');
+    next();
+  });
+
+// Midleware
+app.use(bodyParser.json());
+app.use(cors());
+
+
+// Routes
+app.use(require('./routes/orders.routes.js'))
+
+
+// Static files
+
+
+// Error handlers
+
+module.exports = app;
