@@ -10,10 +10,9 @@ const CardOrder = () => {
     <Card  bordered={false} style={{ width: '100%' }}>
       <Wrapper>
       <CTALogoOne src="/images/cover_melonn.jpg" alt="cover-melonn" />
-      <Description>Welcome Back!</Description>
-      <p>Feel confident to send all your products with us!</p>
-      <Description>Add Your Orders Here! </Description>
-      <p>Remember fill all the fields below to add your order succesfully</p>
+  
+     
+      <Description>Check All Your Orders! </Description>
       </Wrapper>
     
       

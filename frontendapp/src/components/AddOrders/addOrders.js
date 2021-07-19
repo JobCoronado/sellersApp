@@ -8,7 +8,7 @@ import {
   Form,
   Button,
   Input,
-  InputNumber,
+  
   Select,
 } from "antd";
 import CardOrder from "../addOrdersCard/addOrdersCard";
@@ -17,31 +17,23 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "antd/dist/antd.css";
 
-const URL = process.env.APP_URL;
+const URL = "http://localhost:8000/api/v1/orders/";
 
 
 const AddOrders = () => {
   const history = useHistory();
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //      history.push('/test');
-  //    }, 3000);
-  //  },[]);
-  // }
 
   
-  const notify = () => toast("Orden Creada, Está Melonn 😎!");
+  const notify = () => toast("Order Created, Está Melonn!😎");
   
    
 
-   
-  // const notify = () => toast("Orden Creada, Está Melonn 😎!");
+ 
 
   const [sellerStore, setSellerStore] = useState("");
   const [method, setMethod] = useState(0);
   const [externalNumberOrder, setExternalNumberOrder] = useState("");
   const [buyerName, setBuyerName] = useState("");
-  const [buyerLastName, setBuyerLastName] = useState("");
   const [buyerPhone, setBuyerPhone] = useState("");
   const [buyerEmail, setBuyerEmail] = useState("");
   const [shippingAddress, setShippingAdress] = useState("");
@@ -66,9 +58,7 @@ const AddOrders = () => {
     setFormLayout(layout);
   };
 
-  function onSubmit(value) {
-    console.log("changed", value);
-  }
+
   async function handleSubmit() {
     const config = {
       method: "POST",
@@ -81,7 +71,6 @@ const AddOrders = () => {
           externalNumberOrderNumber: externalNumberOrder,
           buyer: {
             buyerName: buyerName,
-            buyerLastName: buyerLastName,
             buyerPhone: buyerPhone,
             buyerEmail: buyerEmail,
           },
@@ -124,32 +113,35 @@ const AddOrders = () => {
           onValuesChange={onFormLayoutChange}
         >
           <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-            v
+            
             <Col className="gutter-row" span={6}>
               <Div>
                 <Input
+                rules={[{type: "text", message: "The field must not be empty"},
+                {required: true, message: "The field must not be empty"}]}
                   placeholder="Seller Store"
                   onChange={(e) => setSellerStore(e.target.value)}
                 />
               </Div>
             </Col>
-            <Col  span={6}>
-              <Div>
-                <Select style={{ width: 200 }} onChange={(e) => setMethod(e)}>
-                  {methods.map((meth) => (
-                    <Option key={meth.id} value={meth.id_}>
-                      {meth.name}
-                    </Option>
-                  ))}
-                </Select>
-              </Div>
-            </Col>
+           
             <Col className="gutter-row" span={6}>
               <Div>
                 <Input
                   placeholder="External Number"
                   onChange={(e) => setExternalNumberOrder(e.target.value)}
                 />
+              </Div>
+            </Col>
+            <Col  span={6}>
+              <Div>
+                <Select style={{ width: 150 }} onChange={(e) => setMethod(e)}>
+                  {methods.map((meth) => (
+                    <Option key={meth.name} value={meth.name_}>
+                      {meth.name}
+                    </Option>
+                  ))}
+                </Select>
               </Div>
             </Col>
           </Row>
@@ -174,17 +166,11 @@ const AddOrders = () => {
                 <Input
                   placeholder="Name"
                   onChange={(e) => setBuyerName(e.target.value)}
+                  required
                 />
               </Div>
             </Col>
-            <Col className="gutter-row" span={6}>
-              <Div>
-                <Input
-                  placeholder="LastName"
-                  onChange={(e) => setBuyerLastName(e.target.value)}
-                />
-              </Div>
-            </Col>
+           
             <Col className="gutter-row" span={6}>
               <Div>
                 <Form.Item name="email" rules={[{type: "email", message: "The input is not valid E-mail!"},
@@ -199,9 +185,18 @@ const AddOrders = () => {
             <Col className="gutter-row" span={6}>
               <Div>
                 <Input
+                
                   placeholder="Phone"
                   onChange={(e) => setBuyerPhone(e.target.value)}
                 />
+              </Div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <Div>
+                {/* <Input
+                  placeholder="LastName"
+                  onChange={(e) => setBuyerLastName(e.target.value)}
+                /> */}
               </Div>
             </Col>
           </Row>
@@ -254,7 +249,7 @@ const AddOrders = () => {
         </Form>
       </Container>
       <Container>
-        <Divider orientation="left"> Shipping Data </Divider>
+        <Divider orientation="left"> Items Data </Divider>
         <Form
           layout={formLayout}
           form={form}
@@ -263,36 +258,65 @@ const AddOrders = () => {
           }}
           onValuesChange={onFormLayoutChange}
         >
-          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+           <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col className="gutter-row" span={6}>
               <Div>
+                <label>Name</label>
                 <Input
                   placeholder="Name"
-                  onChange={(e) => setShippingName(e.target.value)}
+                  
+                   onChange={(e) => setShippingName(e.target.value)}
                 />
               </Div>
             </Col>
             <Col className="gutter-row" span={6}>
               <Div>
-                <InputNumber
+              <label>Quantity</label>
+              
+                 <Input
+                  placeholder="Quantity"
+                  onChange={(e) => setShippingQuantity(e.target.value)}
+                />
+              </Div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <Div>
+              <label>Weight</label>
+              <Input
                   placeholder="Weight"
-                  min={1}
-                  max={10}
-                  
-                  onSumbit={onSubmit}
                   onChange={(e) => setShippingWeight(e.target.value)}
                 />
               </Div>
             </Col>
+            <Col className="gutter-row" span={6}></Col>
+          </Row>
+          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col className="gutter-row" span={6}>
               <Div>
-                <InputNumber
-                  placeholder="Quantity"
-                  min={1}
-                  max={10}
+                <label>Name</label>
+                <Input
+                  placeholder="Name"
                   
-                  onSumbit={onSubmit}
+                   onChange={(e) => setShippingName(e.target.value)}
+                />
+              </Div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <Div>
+              <label>Quantity</label>
+              
+                 <Input
+                  placeholder="Quantity"
                   onChange={(e) => setShippingQuantity(e.target.value)}
+                />
+              </Div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <Div>
+              <label>Weight</label>
+              <Input
+                  placeholder="Weight"
+                  onChange={(e) => setShippingWeight(e.target.value)}
                 />
               </Div>
             </Col>
